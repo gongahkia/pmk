@@ -1,6 +1,20 @@
 repos:
   - repo: https://github.com/psf/black
-    rev: 23.1.0  
+    rev: 23.1.0
     hooks:
       - id: black
         language_version: python3
+
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v8.44.0
+    hooks:
+      - id: eslint
+        files: \.(js|jsx|ts|tsx)$
+        language_version: node
+
+  - repo: https://github.com/pre-commit/mirrors-clang-format
+    rev: v16
+    hooks:
+      - id: clang-format
+        files: \.(c|h)$
+        language_version: system
