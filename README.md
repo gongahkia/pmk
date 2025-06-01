@@ -25,13 +25,16 @@ STRAVA_CLIENT_ID=XXX
 STRAVA_SECRET=XXX
 ```
 
-4. Run the following.
+4. Execute the following.
 
 ```console
-$ 
+$ chmod +x entrypoint.sh
+$ docker build -t pmk-em .
 ```
 
-5. Press *SELECT* button on Pebble Watch.
+5. Then run one of the below.
+    1. Run ```docker run -it --rm -v $(pwd):/pebble-app pebble-dev``` to execute a Local `PMK` Build instance.
+    2. Run ```docker run -it --rm -v $(pwd):/pebble-app pebble-dev install-phone``` to build and install `PMK` on your Physical Watch 
 
 ## Architecture
 
