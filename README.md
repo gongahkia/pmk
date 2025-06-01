@@ -26,6 +26,11 @@ STRAVA_SECRET=XXX
 ```
 
 4. Run the following.
+
+```console
+$ 
+```
+
 5. Press *SELECT* button on Pebble Watch.
 
 ## Architecture
