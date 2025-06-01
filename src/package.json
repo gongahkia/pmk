@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "inject-env": "node lib/inject-env.js",
+    "prebuild": "npm run inject-env",
+    "build": "pebble build",
+    "clean": "rm -f app/pebble-js-app.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0"
+  }
+}
