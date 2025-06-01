@@ -1,0 +1,20 @@
+{
+  "appKeys": {
+    "KEY_REQUEST_ACTIVITIES": 0,
+    "KEY_ACTIVITY_DATA": 1
+  },
+  "capabilities": [
+    "location",
+    "configurable"
+  ],
+  "pebble": {
+    "sdkVersion": "3",
+    "uuid": "YOUR-APP-UUID",
+    "enableMultiJS": true,
+    "displayName": "Strava Pebble",
+    "targetPlatforms": [
+      "aplite",
+      "basalt"
+    ]
+  }
+}

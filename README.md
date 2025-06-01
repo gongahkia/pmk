@@ -4,13 +4,29 @@
 
 ...
 
+> might be useful for details clarification later
+> After authorization, watch receives latest activity data
+> Data updates every 15 minutes (Strava API rate limits)
+
 ## Stack
 
 ...
 
 ## Usage
 
-...
+The below instructions are for locally hosting `PMK`.
+
+1. Register and create an app at [The Strava API](https://developers.strava.com/).
+2. Set the redirect URI to *pebblejs://close*.
+3. Place your Client ID and Secret in a `.env` file within `./src/`.
+
+```env
+STRAVA_CLIENT_ID=XXX
+STRAVA_SECRET=XXX
+```
+
+4. Run the following.
+5. Press *SELECT* button on Pebble Watch.
 
 ## Architecture
 

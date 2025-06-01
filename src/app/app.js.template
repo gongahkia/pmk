@@ -1,0 +1,73 @@
+var stravaConfig = {
+  clientId: process.env.STRAVA_CLIENT_ID,
+  clientSecret: process.env.STRAVA_CLIENT_SECRET,
+  redirectUri: 'pebblejs://close'
+};
+
+var stravaToken = localStorage.getItem('strava_token') || null;
+
+Pebble.addEventListener('ready', function() {
+  if(!stravaToken) {
+    var authUrl = 'https://www.strava.com/oauth/authorize?' +
+      'client_id=' + stravaConfig.clientId +
+      '&redirect_uri=' + encodeURIComponent(stravaConfig.redirectUri) +
+      '&response_type=code' +
+      '&scope=activity:read_all';
+      
+    Pebble.openURL(authUrl);
+  }
+});
+
+Pebble.addEventListener('appmessage', function(e) {
+  if(e.payload.KEY_REQUEST_ACTIVITIES) {
+    fetchActivities().then(function(activities) {
+      var latest = activities[0];
+      Pebble.sendAppMessage({
+        KEY_ACTIVITY_DATA: latest.name + '\n' +
+          'Distance: ' + (latest.distance/1000).toFixed(1) + 'km\n' +
+          'Time: ' + formatTime(latest.moving_time)
+      });
+    });
+  }
+});
+
+function formatTime(seconds) {
+  var hours = Math.floor(seconds / 3600);
+  var minutes = Math.floor((seconds % 3600) / 60);
+  return hours + 'h ' + minutes + 'm';
+}
+
+function fetchActivities() {
+  return new Promise(function(resolve, reject) {
+    if(!stravaToken) reject('No token');
+    
+    fetch('https://www.strava.com/api/v3/athlete/activities', {
+      headers: {
+        'Authorization': 'Bearer ' + stravaToken
+      }
+    })
+    .then(response => response.json())
+    .then(resolve);
+  });
+}
+
+if(window.location.protocol === 'pebblejs:') {
+  var code = new URLSearchParams(window.location.search).get('code');
+  if(code) {
+    fetch('https://www.strava.com/oauth/token', {
+      method: 'POST',
+      body: new URLSearchParams({
+        client_id: stravaConfig.clientId,
+        client_secret: stravaConfig.clientSecret,
+        code: code,
+        grant_type: 'authorization_code'
+      })
+    })
+    .then(response => response.json())
+    .then(function(data) {
+      localStorage.setItem('strava_token', data.access_token);
+      stravaToken = data.access_token;
+      Pebble.closeWindow();
+    });
+  }
+}

@@ -1,0 +1,7 @@
+#ifndef STRAVA_CONFIG_H
+#define STRAVA_CONFIG_H
+
+#define KEY_REQUEST_ACTIVITIES 0
+#define KEY_ACTIVITY_DATA 1
+
+#endif
