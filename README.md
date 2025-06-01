@@ -1,6 +1,6 @@
 [![](https://img.shields.io/badge/pmk_1.0.0-passing-green)](https://github.com/gongahkia/pmk/releases/tag/1.0.0) 
 
-# `PMK`
+# `PMK` 🦢
 
 A Strava application for your [Pebble](https://en.wikipedia.org/wiki/Pebble_(watch)) *(now [(re)Pebble](https://repebble.com/))* watch.
 
