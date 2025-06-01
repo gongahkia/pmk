@@ -9,7 +9,9 @@
 
 ## Stack
 
-...
+* *Script*: [C](https://www.learn-c.org/), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* *SDK*: [Pebble SDK](https://developer.rebble.io/developer.pebble.com/sdk/index.html), [PebbleKit JS](https://developer.rebble.io/developer.pebble.com/guides/communication/using-pebblekit-js/index.html), [Pebble Emulator](https://developer.rebble.io/developer.pebble.com/blog/2015/01/30/Development-Of-The-Pebble-Emulator/index.html) (provisioned by [Rebble](https://rebble.io/))
+* *API*: [Strava API](https://developers.strava.com/)
 
 ## Usage
 
