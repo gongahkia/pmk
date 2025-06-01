@@ -4,7 +4,7 @@
 
 A Strava application for your [Pebble](https://en.wikipedia.org/wiki/Pebble_(watch)) *(now [(re)Pebble](https://repebble.com/))* watch.
 
-`PMK` securely integrates with [Strava API](https://developers.strava.com/) via [OAuth 2.0](https://oauth.net/2/) to render user's Strava activity data, fetched and displayed [every 15 minutes](https://developers.strava.com/docs/rate-limits/).
+`PMK` securely integrates with [Strava API](https://developers.strava.com/) via [OAuth 2.0](https://oauth.net/2/) to render user's [Strava Activity](https://support.strava.com/hc/en-us/sections/203774017-Strava-Activities) data, fetched and displayed [every 15 minutes](https://developers.strava.com/docs/rate-limits/).
 
 ## Stack
 
